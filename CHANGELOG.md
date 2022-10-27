@@ -1,3 +1,7 @@
+## [1.1.0] - 2022-10-02
+### Added
+- Compatibility with WooCommerce High-Performance Order Storage (HPOS)
+
 ## [1.0.4] - 2022-05-25
 ### Fixed
 - Added missing `wpdesk/wp-wpdesk-tracker` library
