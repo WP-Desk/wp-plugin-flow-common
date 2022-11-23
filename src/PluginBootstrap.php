@@ -115,6 +115,16 @@ final class PluginBootstrap {
 			},
 			self::PRIORITY_BEFORE_FLOW_2_5
 		);
+
+		add_action(
+			'before_woocommerce_init',
+			static function () use ( $plugin_info ) {
+				$features_util_class = '\\' . 'Automattic' . '\\' . 'WooCommerce' . '\\' . 'Utilities' . '\\' . 'FeaturesUtil';
+				if ( class_exists( $features_util_class ) ) {
+					$features_util_class::declare_compatibility( 'custom_order_tables', $plugin_info->get_plugin_file_name(), true );
+				}
+			}
+		);
 	}
 
 	/**
