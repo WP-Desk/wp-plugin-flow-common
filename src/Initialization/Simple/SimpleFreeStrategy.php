@@ -52,6 +52,9 @@ class SimpleFreeStrategy implements InitializationStrategy {
 
 		$this->store_plugin( $this->plugin );
 		$this->init_plugin( $this->plugin );
+		// Flush usage tracker late, to remain backward compatible with plugins which could instantiate
+		// the tracker on their own through `wpdesk_tracker_instance` filter.
+		$this->get_tracker_instance();
 
 		return $this->plugin;
 	}
