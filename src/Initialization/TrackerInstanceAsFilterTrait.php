@@ -58,21 +58,23 @@ trait TrackerInstanceAsFilterTrait {
 				$tracker_factory        = new \WPDesk_Tracker_Factory_Prefixed();
 				self::$tracker_instance = $tracker_factory->create_tracker( basename( $this->plugin_info->get_plugin_file_name() ) );
 
-				$shops    = $this->plugin_info->get_plugin_shops();
-				$shop_url = $shops[ get_locale() ] ?? ( $shops['default'] ?? 'https://wpdesk.net' );
-				$tracker_ui = new OptInOptOut(
-					$this->plugin_info->get_plugin_file_name(),
-					$this->plugin_info->get_plugin_slug(),
-					$shop_url,
-					$this->plugin_info->get_plugin_name()
-				);
-				$tracker_ui->create_objects();
-				$tracker_ui->hooks();
-
 				do_action( 'wpdesk_tracker_started', self::$tracker_instance, $this->plugin_info );
 
 				return self::$tracker_instance;
 			}
 		}, 10 - $this->get_tracker_version() );
 	}
+
+	private function register_tracker_ui_extensions() {
+		$shops    = $this->plugin_info->get_plugin_shops();
+		$shop_url = $shops[ get_locale() ] ?? ( $shops['default'] ?? 'https://wpdesk.net' );
+		$tracker_ui = new OptInOptOut(
+			$this->plugin_info->get_plugin_file_name(),
+			$this->plugin_info->get_plugin_slug(),
+			$shop_url,
+			$this->plugin_info->get_plugin_name()
+		);
+		$tracker_ui->create_objects();
+		$tracker_ui->hooks();
+  }
 }
