@@ -1,3 +1,7 @@
+## [Unreleased]
+### Changed
+- Usage tracker is initialized by the library after all plugin's hookables are registered.
+
 ## [1.1.0] - 2022-11-23
 ### Added
 - Compatibility with WooCommerce High-Performance Order Storage (HPOS)
