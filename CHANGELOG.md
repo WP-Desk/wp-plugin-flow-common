@@ -1,4 +1,4 @@
-## [Unreleased]
+## [1.2.0] - 2024-03-20
 ### Changed
 - Usage tracker is initialized by the library after all plugin's hookables are registered.
 
