@@ -1,3 +1,7 @@
+## [1.2.1] - 2024-11-09
+### Fixed
+- WordPress 6.7 compatibility: loading text domain
+
 ## [1.2.0] - 2024-03-20
 ### Changed
 - Usage tracker is initialized by the library after all plugin's hookables are registered.
