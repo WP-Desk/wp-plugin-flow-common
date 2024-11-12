@@ -6,12 +6,12 @@ class Test_Plugin_Initialization_Strategy_Simple extends \WP_Mock\Tools\TestCase
 
 	const WP_VERSION = 5.5;
 
-	public function setUp() {
+	public function setUp(): void {
 		WP_Mock::setUp();
         $this->markTestSkipped('Move this test to paid plugin flow library!');
     }
 
-	public function tearDown() {
+	public function tearDown(): void {
 		WP_Mock::tearDown();
 	}
 

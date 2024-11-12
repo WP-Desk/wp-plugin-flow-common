@@ -9,7 +9,7 @@ class Test_Plugin_Bootstrap extends \WP_Mock\Tools\TestCase {
 
 	const WP_VERSION = 5.5;
 
-	public function setUp() {
+	public function setUp(): void {
 		WP_Mock::setUp();
 
 		WP_Mock::userFunction( 'get_locale',
@@ -34,11 +34,15 @@ class Test_Plugin_Bootstrap extends \WP_Mock\Tools\TestCase {
 			[
 				'return' => 'whatever',
 			] );
+        WP_Mock::userFunction( 'wp_using_ext_object_cache',
+            [
+                'return' => false,
+            ] );
 
 		! defined( 'WP_PLUGIN_DIR' ) && define( 'WP_PLUGIN_DIR', __DIR__ . '/../../Stub/' );
 	}
 
-	public function tearDown() {
+	public function tearDown(): void {
 		WP_Mock::tearDown();
 	}
 

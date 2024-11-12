@@ -7,11 +7,11 @@ use WPDesk\Plugin\Flow\Initialization\Simple\SimplePaidStrategy;
 
 class Test_Plugin_Initialization_Strategy_Simple_Factory extends \WP_Mock\Tools\TestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		WP_Mock::setUp();
 	}
 
-	public function tearDown() {
+	public function tearDown(): void {
 		WP_Mock::tearDown();
 	}
 
