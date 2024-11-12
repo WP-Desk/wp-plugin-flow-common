@@ -4,11 +4,11 @@ use WPDesk\Plugin\Flow\Initialization\Simple\SimpleFreeStrategy;
 
 class Test_Plugin_Initialization_Strategy_Simple_Free extends \WP_Mock\Tools\TestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		WP_Mock::setUp();
 	}
 
-	public function tearDown() {
+	public function tearDown(): void {
 		WP_Mock::tearDown();
 	}
 
@@ -27,6 +27,10 @@ class Test_Plugin_Initialization_Strategy_Simple_Free extends \WP_Mock\Tools\Tes
 			[
 				'return' => 'whatever',
 			] );
+        WP_Mock::userFunction( 'get_locale',
+            [
+                'return' => 'en_US',
+            ] );
 
 		$strategy = new SimpleFreeStrategy( $info );
 		$this->assertInstanceOf( Stub_Plugin::class, $strategy->run_init( $info ), "Plugin should be actually built" );
