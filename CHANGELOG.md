@@ -1,3 +1,7 @@
+## [1.2.3] - 2024-11-09
+### Fixed
+- Hide doing it wrong notice on production environment 
+
 ## [1.2.2] - 2024-11-09
 ### Fixed
 - Reverted: WordPress 6.7 compatibility: loading text domain
