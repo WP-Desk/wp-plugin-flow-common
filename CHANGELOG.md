@@ -1,3 +1,7 @@
+## [1.2.2] - 2024-11-09
+### Fixed
+- Reverted: WordPress 6.7 compatibility: loading text domain
+
 ## [1.2.1] - 2024-11-09
 ### Fixed
 - WordPress 6.7 compatibility: loading text domain
