@@ -200,7 +200,7 @@ final class PluginBootstrap {
 		$plugin_info->set_version( $this->plugin_version );
 		$plugin_info->set_product_id( $this->product_id );
 		$plugin_info->set_text_domain( $this->plugin_text_domain );
-		$plugin_info->set_plugin_url( plugins_url( dirname( plugin_basename( $this->plugin_file ) ) ) );
+		$plugin_info->set_plugin_url( plugins_url( '', $this->plugin_file ) );
 		$plugin_info->set_plugin_shops( $this->plugin_shops );
 
 		return $plugin_info;
