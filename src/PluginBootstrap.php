@@ -162,7 +162,7 @@ final class PluginBootstrap {
 		}, 10, 4 );
 		\load_plugin_textdomain(
 			$plugin_info->get_text_domain(),
-			false,
+			'',
 			basename( $plugin_info->get_plugin_dir() ) . "/$lang_dir/"
 		);
 	}
