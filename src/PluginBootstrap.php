@@ -135,7 +135,7 @@ final class PluginBootstrap {
 	private function add_activation_hook_for_save_activation_date() {
 		add_action( 'activated_plugin', static function ( $plugin_file, $network_wide = false ) {
 			if ( ! $network_wide ) {
-				$option_name     = 'plugin_activation_' . $plugin_file;
+				$option_name     = 'activation_plugin_' . $plugin_file;
 				$activation_date = get_option( $option_name, '' );
 				if ( '' === $activation_date ) {
 					$activation_date = current_time( 'mysql' );
@@ -162,7 +162,7 @@ final class PluginBootstrap {
 		}, 10, 4 );
 		\load_plugin_textdomain(
 			$plugin_info->get_text_domain(),
-			false,
+			'',
 			basename( $plugin_info->get_plugin_dir() ) . "/$lang_dir/"
 		);
 	}
@@ -200,7 +200,7 @@ final class PluginBootstrap {
 		$plugin_info->set_version( $this->plugin_version );
 		$plugin_info->set_product_id( $this->product_id );
 		$plugin_info->set_text_domain( $this->plugin_text_domain );
-		$plugin_info->set_plugin_url( plugins_url( dirname( plugin_basename( $this->plugin_file ) ) ) );
+		$plugin_info->set_plugin_url( plugins_url( '', $this->plugin_file ) );
 		$plugin_info->set_plugin_shops( $this->plugin_shops );
 
 		return $plugin_info;
