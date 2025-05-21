@@ -135,7 +135,7 @@ final class PluginBootstrap {
 	private function add_activation_hook_for_save_activation_date() {
 		add_action( 'activated_plugin', static function ( $plugin_file, $network_wide = false ) {
 			if ( ! $network_wide ) {
-				$option_name     = 'plugin_activation_' . $plugin_file;
+				$option_name     = 'activation_plugin_' . $plugin_file;
 				$activation_date = get_option( $option_name, '' );
 				if ( '' === $activation_date ) {
 					$activation_date = current_time( 'mysql' );
