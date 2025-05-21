@@ -1,3 +1,7 @@
+## [1.3.0] - 2025-05-21
+### Changed
+- Plugin activation option key.
+
 ## [1.2.3] - 2024-11-09
 ### Fixed
 - Hide doing it wrong notice on production environment 
