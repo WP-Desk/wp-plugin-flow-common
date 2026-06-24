@@ -1,3 +1,7 @@
+## [1.4.0] - 2026-06-24
+### Added
+- Added free plugin bootstrap variant without tracker initialization.
+
 ## [1.3.0] - 2025-05-21
 ### Changed
 - Plugin activation option key.
