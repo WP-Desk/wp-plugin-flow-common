@@ -13,3 +13,13 @@ LICENSE.md export-ignore
 phpcs.xml.dist export-ignore
 phpunit-integration.xml export-ignore
 phpunit-unit.xml export-ignore
+
+/.editorconfig               export-ignore
+/.gitattributes              export-ignore
+/.gitignore                  export-ignore
+/.github                     export-ignore
+/phpcs.xml.dist              export-ignore
+/phpunit.xml.dist            export-ignore
+/phpstan.neon.dist           export-ignore
+/tests                       export-ignore
+/vendor                      export-ignore
