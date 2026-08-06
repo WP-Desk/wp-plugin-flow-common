@@ -8,7 +8,6 @@
  * @var string                                                       $plugin_file
  * @var array                                                        $requirements
  * @var string                                                       $product_id
- * @var string                                                       $plugin_vendor
  * @var WPDesk\Plugin\Flow\Initialization\InitializationFactory|void $plugin_init_factory
  */
 
@@ -28,10 +27,6 @@ if ( PHP_VERSION_ID > 50300 ) {
 	if ( ! isset( $plugin_shops ) || ! is_array( $plugin_shops ) ) {
 		$plugin_shops = array();
 	}
-	if ( ! isset( $plugin_vendor ) || ! is_string( $plugin_vendor ) ) {
-		$plugin_vendor = 'wpdesk';
-	}
-
 	$bootstrap = new WPDesk\Plugin\Flow\PluginBootstrap(
 		$plugin_version,
 		null, // deprecated
@@ -43,8 +38,7 @@ if ( PHP_VERSION_ID > 50300 ) {
 		$requirements,
 		$product_id,
 		$plugin_init_factory,
-		$plugin_shops,
-		$plugin_vendor
+		$plugin_shops
 	);
 
 	$bootstrap->run();

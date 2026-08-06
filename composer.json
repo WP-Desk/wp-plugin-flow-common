@@ -27,7 +27,7 @@
     "php": ">=7.4",
     "wpdesk/wp-basic-requirements": "^3.2.3",
     "wpdesk/wp-builder": "^2.0.0",
-    "wpdesk/wp-wpdesk-tracker": "^3.11"
+    "wpdesk/wp-wpdesk-tracker": "^3.12"
   },
   "require-dev": {
     "phpunit/phpunit": "^7||^8||^9",

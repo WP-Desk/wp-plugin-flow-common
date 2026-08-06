@@ -42,9 +42,6 @@ final class PluginBootstrap {
 	/** @var array */
 	private $plugin_shops;
 
-	/** @var string */
-	private $plugin_vendor;
-
 	/**
 	 * Factory to build strategy how initialize that plugin
 	 *
@@ -66,7 +63,6 @@ final class PluginBootstrap {
 	 * @param string $product_id
 	 * @param InitializationFactory $build_factory
 	 * @param array $plugin_shops
-	 * @param string $plugin_vendor
 	 */
 	public function __construct(
 		$plugin_version,
@@ -79,8 +75,7 @@ final class PluginBootstrap {
 		array $requirements,
 		$product_id,
 		InitializationFactory $build_factory,
-		$plugin_shops,
-		$plugin_vendor = 'wpdesk'
+		$plugin_shops
 	) {
 		$this->plugin_version           = $plugin_version;
 		$this->plugin_name              = $plugin_name;
@@ -92,7 +87,6 @@ final class PluginBootstrap {
 		$this->product_id               = $product_id;
 		$this->initialization_factory   = $build_factory;
 		$this->plugin_shops             = $plugin_shops;
-		$this->plugin_vendor            = $plugin_vendor;
 	}
 
 	/**
@@ -100,7 +94,6 @@ final class PluginBootstrap {
 	 */
 	public function run() {
 		$plugin_info = $this->get_plugin_info();
-		$this->register_tracker_vendor( $plugin_info );
 		$this->init_translations( $plugin_info );
 		$strategy             = $this->initialization_factory->create_initialization_strategy( $plugin_info );
 		$requirements_checker = $this->create_requirements_checker();
@@ -132,21 +125,6 @@ final class PluginBootstrap {
 				}
 			}
 		);
-	}
-
-	/**
-	 * Sets the default tracker bucket for this plugin. Consumers can still override
-	 * it through the public filter at the default priority.
-	 *
-	 * @param \WPDesk_Plugin_Info $plugin_info
-	 *
-	 * @return void
-	 */
-	private function register_tracker_vendor( \WPDesk_Plugin_Info $plugin_info ) {
-		$plugin_vendor = $this->plugin_vendor;
-		add_filter( 'wpdesk/tracker/bucket/' . $plugin_info->get_plugin_slug(), static function () use ( $plugin_vendor ) {
-			return $plugin_vendor;
-		}, 5 );
 	}
 
 	/**
