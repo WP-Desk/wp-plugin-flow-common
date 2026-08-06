@@ -51,12 +51,7 @@ trait TrackerInstanceAsFilterTrait {
 			return $this->tracker_bucket;
 		}
 
-		$plugin_data = get_file_data(
-			$this->plugin_info->get_plugin_file_name(),
-			[ 'Author' => 'Author' ]
-		);
-		$bucket      = sanitize_key( $plugin_data['Author'] ?? '' );
-		$bucket      = apply_filters( 'wpdesk/tracker/bucket/' . $this->plugin_info->get_plugin_slug(), $bucket );
+		$bucket = apply_filters( 'wpdesk/tracker/bucket/' . $this->plugin_info->get_plugin_slug(), 'wpdesk' );
 
 		$this->tracker_bucket = sanitize_key( $bucket ) ?: 'wpdesk';
 

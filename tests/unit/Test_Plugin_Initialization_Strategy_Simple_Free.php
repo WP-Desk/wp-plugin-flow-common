@@ -27,6 +27,10 @@ class Test_Plugin_Initialization_Strategy_Simple_Free extends \WP_Mock\Tools\Tes
 			[
 				'return' => 'whatever',
 			] );
+		WP_Mock::userFunction( 'sanitize_key',
+			[
+				'return' => 'wpdesk',
+			] );
         WP_Mock::userFunction( 'get_locale',
             [
                 'return' => 'en_US',

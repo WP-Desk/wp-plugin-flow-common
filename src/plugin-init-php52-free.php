@@ -8,6 +8,7 @@
  * @var string $plugin_file
  * @var array  $requirements
  * @var string $product_id
+ * @var string $plugin_vendor
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

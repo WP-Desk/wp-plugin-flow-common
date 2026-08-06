@@ -43,7 +43,11 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php }}-composer-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          composer config --global gitlab-token.gitlab.wpdesk.dev "$GITLAB_TOKEN"
+          composer install --prefer-dist --no-interaction --no-progress
 
       - name: Run tests
         run: composer test
@@ -76,7 +80,11 @@ jobs:
             ${{ runner.os }}-php-8.3-composer-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          composer config --global gitlab-token.gitlab.wpdesk.dev "$GITLAB_TOKEN"
+          composer install --prefer-dist --no-interaction --no-progress
 
       - name: Run PHPStan
         run: composer analyse

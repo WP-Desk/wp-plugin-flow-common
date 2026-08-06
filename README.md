@@ -33,6 +33,7 @@ $requirements = [
 	'wp'  => '6.0',
 ];
 $product_id = 'my-plugin';
+$plugin_vendor = 'my-company';
 
 require __DIR__ . '/vendor/wpdesk/wp-plugin-flow-common/src/plugin-init-php52.php';
 ```
@@ -45,7 +46,7 @@ require __DIR__ . '/vendor/wpdesk/wp-plugin-flow-common/src/plugin-init-php52-fr
 
 If you need a custom initialization strategy, define `$plugin_init_factory` before including the bootstrap file.
 
-Usage trackers are shared between plugins with the same normalized `Author` header. The bucket can be overridden for an individual plugin:
+Usage trackers are shared between plugins with the same normalized `$plugin_vendor`. It defaults to `wpdesk` when omitted. The bucket can be overridden for an individual plugin:
 
 ```php
 add_filter( 'wpdesk/tracker/bucket/my-plugin', function () {
