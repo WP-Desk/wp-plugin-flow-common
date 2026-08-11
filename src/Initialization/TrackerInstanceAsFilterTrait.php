@@ -25,7 +25,7 @@ trait TrackerInstanceAsFilterTrait {
 		$shop_url = $shops[ get_locale() ] ?? ( $shops['default'] ?? 'https://wpdesk.net' );
 		$plugin_file = rtrim( $this->plugin_info->get_plugin_dir(), '/\\' ) . '/' . basename( $this->plugin_info->get_plugin_file_name() );
 
-		add_action( 'wpdesk_tracker_plugin_started', function ( $tracker, $plugin_basename, $plugin_slug ) {
+		add_action( 'wpdesk/tracker/plugin_started', function ( $tracker, $plugin_basename, $plugin_slug ) {
 			if ( $plugin_basename === $this->plugin_info->get_plugin_file_name() && $plugin_slug === $this->plugin_info->get_plugin_slug() ) {
 				do_action( 'wpdesk_tracker_started', $tracker, $this->plugin_info );
 			}
@@ -33,7 +33,6 @@ trait TrackerInstanceAsFilterTrait {
 
 		Tracker::register_plugin(
 			$plugin_file,
-			$this->plugin_info->get_plugin_file_name(),
 			$this->plugin_info->get_plugin_slug(),
 			$shop_url,
 			$this->plugin_info->get_plugin_name()
