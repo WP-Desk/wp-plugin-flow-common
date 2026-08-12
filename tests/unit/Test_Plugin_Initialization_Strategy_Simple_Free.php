@@ -18,6 +18,10 @@ class Test_Plugin_Initialization_Strategy_Simple_Free extends \WP_Mock\Tools\Tes
 	public function test_strategy_can_build() {
 		$info = new \WPDesk_Plugin_Info();
 		$info->set_class_name( Stub_Plugin::class );
+		$info->set_plugin_dir( '/plugins/whatever' );
+		$info->set_plugin_file_name( 'whatever/whatever.php' );
+		$info->set_plugin_name( 'Whatever' );
+		$info->set_plugin_shops( [] );
 
 		WP_Mock::userFunction( 'plugin_dir_url',
 			[

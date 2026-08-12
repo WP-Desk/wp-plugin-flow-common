@@ -45,10 +45,17 @@ require __DIR__ . '/vendor/wpdesk/wp-plugin-flow-common/src/plugin-init-php52-fr
 
 If you need a custom initialization strategy, define `$plugin_init_factory` before including the bootstrap file.
 
+Usage trackers are shared between plugins with the same normalized `Author` header. The bucket is resolved only when the tracker sends data. It can be overridden for an individual plugin:
+
+```php
+add_filter( 'wpdesk/tracker/bucket/my-plugin', function () {
+	return 'my-company';
+} );
+```
+
 ## Tests
 
 ```bash
 composer phpunit-unit-fast
 composer phpunit-integration-fast
 ```
-
