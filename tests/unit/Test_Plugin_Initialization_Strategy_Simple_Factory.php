@@ -28,4 +28,11 @@ class Test_Plugin_Initialization_Strategy_Simple_Factory extends \WP_Mock\Tools\
 		$strategy =  $factory->create_initialization_strategy($stubInfo);
 		$this->assertInstanceOf( SimplePaidStrategy::class, $strategy, 'Standard strategy should be created');
 	}
+
+	public function test_free_plugin_can_create_free_strategy_without_tracker() {
+		$stubInfo = new \WPDesk_Plugin_Info();
+		$factory = new SimpleFactory( true, false );
+		$strategy =  $factory->create_initialization_strategy($stubInfo);
+		$this->assertInstanceOf(SimpleFreeStrategy::class, $strategy, 'Free strategy without tracker should be created');
+	}
 }

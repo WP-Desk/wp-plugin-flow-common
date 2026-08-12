@@ -43,6 +43,12 @@ For a free plugin use:
 require __DIR__ . '/vendor/wpdesk/wp-plugin-flow-common/src/plugin-init-php52-free.php';
 ```
 
+For a free plugin without tracker initialization use:
+
+```php
+require __DIR__ . '/vendor/wpdesk/wp-plugin-flow-common/src/plugin-init-php52-free-no-tracker.php';
+```
+
 If you need a custom initialization strategy, define `$plugin_init_factory` before including the bootstrap file.
 
 Usage trackers are shared between plugins with the same normalized `Author` header. The bucket is resolved only when the tracker sends data. It can be overridden for an individual plugin:
