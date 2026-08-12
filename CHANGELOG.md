@@ -1,3 +1,7 @@
+## [1.5.0] - 2026-08-12
+### Changed
+- Integrate new version of `wpdesk/wp-wpdesk-tracker` library.
+
 ## [1.4.0] - 2026-06-24
 ### Added
 - Added free plugin bootstrap variant without tracker initialization.
