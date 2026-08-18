@@ -1,3 +1,7 @@
+## [1.5.2] - 2026-08-18
+### Fixed
+- Fix call to undefined method
+
 ## [1.5.0] - 2026-08-12
 ### Changed
 - Integrate new version of `wpdesk/wp-wpdesk-tracker` library.
