@@ -1,3 +1,7 @@
+## [1.6.0] - 2026-09-25
+### Changed
+- Replaced the deprecated `create_function()` call with a named callback.
+
 ## [1.5.2] - 2026-08-18
 ### Fixed
 - Fix call to undefined method
