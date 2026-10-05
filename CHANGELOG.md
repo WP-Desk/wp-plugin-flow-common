@@ -1,3 +1,7 @@
+## [Unreleased]
+### Fixed
+- Escaped the unsupported PHP version admin notice and removed HTML from its translatable text.
+
 ## [1.6.0] - 2026-09-25
 ### Changed
 - Replaced the deprecated `create_function()` call with a named callback.
